@@ -1,7 +1,7 @@
 // src/components/CartSidebar.jsx
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
-import { Link } from 'react-router-dom'; // Si quieres un botón "Checkout"
+import { Link } from 'react-router-dom';
 
 const CartSidebar = () => {
     const { cart, handleDeleteProduct, handleDeleteCart, handleDecrementItem, handleAddToCart, isCartOpen, closeCart } = useContext(CartContext);
@@ -33,7 +33,7 @@ const CartSidebar = () => {
                     </button>
                 </div>
 
-                <div className="p-4 overflow-y-auto" style={{ maxHeight: 'calc(100% - 160px)' }}> {/* Ajusta el maxHeight si es necesario */}
+                <div className="p-4 overflow-y-auto" style={{ maxHeight: 'calc(100% - 160px)' }}>
                     {cart.length === 0 ? (
                         <p className="text-gray-500 text-center py-8">El carrito está vacío.</p>
                     ) : (
@@ -74,9 +74,9 @@ const CartSidebar = () => {
                             Vaciar Carrito
                         </button>
                         <Link
-                            to="/checkout" // Puedes cambiar esto a la ruta de tu página de checkout si la tienes
+                            to="/checkout" // falta implementar en caso que concretemos la venta.
                             className="block text-center w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
-                            onClick={closeCart} // Cierra el carrito al ir al checkout
+                            onClick={closeCart} 
                         >
                             Finalizar Compra
                         </Link>

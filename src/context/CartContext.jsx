@@ -5,7 +5,7 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true); // Inicializa loading en true al principio
+    const [loading, setLoading] = useState(true); 
     const [error, setError] = useState(false);
     const [isAuth, setIsAuth] = useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false);
@@ -53,18 +53,15 @@ export const CartProvider = ({ children }) => {
 
     const handleDecrementItem = (productId) => {
         setCart(prevCart => {
-            // Encuentra el producto en el carrito
             const existingItem = prevCart.find(item => item.id === productId);
 
             if (!existingItem) {
-                return prevCart; // Si no existe, no hacemos nada
+                return prevCart; 
             }
 
-            // Si la cantidad es 1, lo eliminamos completamente del carrito
             if (existingItem.quantity === 1) {
                 return prevCart.filter(item => item.id !== productId);
             } else {
-                // Si la cantidad es mayor a 1, la decrementamos
                 return prevCart.map(item =>
                     item.id === productId
                         ? { ...item, quantity: item.quantity - 1 }
