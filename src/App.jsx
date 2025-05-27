@@ -10,6 +10,7 @@ import Admin from './pages/Admin';
 import NotFound from './pages/NotFound';
 import ProtectedRoute from './auth/ProtectedRoute'
 import CartSidebar from './components/CartSidebar';
+import Error from './components/statics/Error';
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/error" element={<Error />} />
         <Route path="/admin" element={
           <ProtectedRoute>
             <Admin />

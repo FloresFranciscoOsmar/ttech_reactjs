@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import ProductsGrid from '../components/ProductGrid';
 import Loading from '../components/statics/Loading';
+import Error from '../components/statics/Error';
 const Home = () => {
     const { loading, error } = useContext(CartContext);
     if (loading) return (
@@ -9,7 +10,11 @@ const Home = () => {
             <Loading />
         </div>
     );
-    if (error) return <p>Error al cargar productos.</p>;
+    if (error) return (
+        <div>
+            <Error/>
+        </div>
+    )
 
     return (
         <div className='min-h-screen'>
